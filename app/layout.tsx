@@ -12,7 +12,8 @@ const body = Source_Sans_3({ subsets: ["latin"], variable: "--font-body" });
 
 export const metadata: Metadata = {
   title: "Copper State Labs",
-  description: "Copper State Labs base repo for CIS 591",
+  description:
+    "Copper Home and Copper Notes: AI helpers for your home and your meetings. From raw ideas to refined answers.",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
@@ -20,7 +21,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
     <html
       lang="en"
       suppressHydrationWarning
-      className={cn("h-full antialiased", display.variable, body.variable)}
+      className={cn("h-full scroll-smooth antialiased", display.variable, body.variable)}
     >
       <body className="flex min-h-full flex-col">
         <ThemeProvider

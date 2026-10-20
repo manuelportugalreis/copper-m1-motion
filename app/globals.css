@@ -45,6 +45,14 @@
   --radius-2xl: calc(var(--radius) * 1.8);
   --radius-3xl: calc(var(--radius) * 2.2);
   --radius-4xl: calc(var(--radius) * 2.6);
+  /* Brand colors by name, for places where the role-based tokens don't fit
+     (Night Sky footer, color swatches). */
+  --color-copper: #b87333;
+  --color-patina: #4a8c82;
+  --color-sand: #efe3d0;
+  --color-sunset: #e8663d;
+  --color-night: #1c2333;
+  --color-hardhat: #f2c230;
 }
 
 /*

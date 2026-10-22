@@ -6,8 +6,12 @@ import { CUTOUT_ALT, CUTOUT_SIZE } from "./product-images";
 // The larger product sits back-left, the smaller one overlaps front-right.
 const PLACEMENT = [
   "left-0 top-0 w-[78%]",
-  "bottom-0 right-0 w-[50%] drop-shadow-2xl",
+  "bottom-0 right-0 w-[50%] drop-shadow-2xl [animation-delay:-3s]",
 ];
+
+// Hover lift and press for the hero buttons.
+const BUTTON_MOTION =
+  "transition-transform hover:-translate-y-0.5 active:translate-y-0 motion-reduce:transition-none motion-reduce:hover:translate-y-0";
 
 export function Hero() {
   const products = getProducts();
@@ -34,10 +38,19 @@ export function Hero() {
             clip-on recorder that turns every meeting into clear notes.
           </p>
           <div className="mt-2 flex flex-wrap gap-3">
-            <Button asChild size="lg" className="px-6 text-base">
+            <Button
+              asChild
+              size="lg"
+              className={`px-6 text-base ${BUTTON_MOTION}`}
+            >
               <a href="#products">See products</a>
             </Button>
-            <Button asChild size="lg" variant="outline" className="px-6 text-base">
+            <Button
+              asChild
+              size="lg"
+              variant="outline"
+              className={`px-6 text-base ${BUTTON_MOTION}`}
+            >
               <a href="#plus">Compare plans</a>
             </Button>
           </div>
@@ -46,7 +59,7 @@ export function Hero() {
         <div className="relative mx-auto aspect-[5/4] w-full max-w-lg">
           <div
             aria-hidden
-            className="bg-primary/15 absolute inset-[6%] rounded-full"
+            className="bg-primary/15 animate-breathe absolute inset-[6%] rounded-full motion-reduce:animate-none"
           />
           {products.map((product, index) => (
             <Image
@@ -57,7 +70,7 @@ export function Hero() {
               height={CUTOUT_SIZE}
               priority
               sizes="(min-width: 768px) 40vw, 80vw"
-              className={`absolute h-auto drop-shadow-xl ${PLACEMENT[index] ?? ""}`}
+              className={`animate-float absolute h-auto drop-shadow-xl motion-reduce:animate-none ${PLACEMENT[index] ?? ""}`}
             />
           ))}
         </div>

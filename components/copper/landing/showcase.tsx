@@ -26,17 +26,21 @@ export function Showcase() {
               key={photo.src}
               className="grid items-center gap-6 md:grid-cols-5 md:gap-12"
             >
-              <Image
-                src={photo.src}
-                alt={photo.alt}
-                width={photo.width}
-                height={photo.height}
-                sizes="(min-width: 768px) 60vw, 100vw"
+              <div
                 className={cn(
-                  "h-auto w-full rounded-2xl shadow-lg md:col-span-3",
+                  "overflow-hidden rounded-2xl shadow-lg md:col-span-3",
                   index % 2 === 1 && "md:order-last",
                 )}
-              />
+              >
+                <Image
+                  src={photo.src}
+                  alt={photo.alt}
+                  width={photo.width}
+                  height={photo.height}
+                  sizes="(min-width: 768px) 60vw, 100vw"
+                  className="h-auto w-full transition-transform duration-700 hover:scale-105 motion-reduce:transition-none motion-reduce:hover:scale-100"
+                />
+              </div>
               <div className="md:col-span-2">
                 <p className="text-muted-foreground text-sm font-semibold tracking-widest uppercase">
                   {photo.product.name}

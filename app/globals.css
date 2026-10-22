@@ -151,3 +151,30 @@
     @apply font-heading;
   }
 }
+
+/* Landing page motion. Transform-only and always visible, so screenshots never
+   catch a section mid-fade. Components pair these with motion-reduce:animate-none. */
+@theme {
+  --animate-float: float 6s ease-in-out infinite;
+  --animate-breathe: breathe 8s ease-in-out infinite;
+
+  @keyframes float {
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-12px);
+    }
+  }
+
+  @keyframes breathe {
+    0%,
+    100% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.05);
+    }
+  }
+}

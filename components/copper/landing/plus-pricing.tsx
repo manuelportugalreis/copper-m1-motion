@@ -58,7 +58,10 @@ function PlanCard({ plan }: { plan: Plan }) {
                 </>
               ) : (
                 <>
-                  <MinusIcon aria-hidden className="text-muted-foreground size-5" />
+                  <MinusIcon
+                    aria-hidden
+                    className="text-muted-foreground size-5"
+                  />
                   Not included
                 </>
               )}

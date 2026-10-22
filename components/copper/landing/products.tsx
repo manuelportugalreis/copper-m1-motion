@@ -18,7 +18,7 @@ function ProductCard({ product }: { product: Product }) {
     <Card
       data-testid="product-card"
       data-product={product.id}
-      className="gap-0 overflow-hidden py-0"
+      className="group gap-0 overflow-hidden py-0 transition duration-300 hover:-translate-y-1 hover:shadow-xl motion-reduce:transition-none motion-reduce:hover:translate-y-0"
     >
       <div className="bg-secondary flex flex-col items-center gap-4 px-8 pt-8 pb-6">
         <Image
@@ -27,9 +27,12 @@ function ProductCard({ product }: { product: Product }) {
           width={CUTOUT_SIZE}
           height={CUTOUT_SIZE}
           sizes="(min-width: 768px) 280px, 60vw"
-          className="h-auto w-3/5 max-w-72 drop-shadow-lg"
+          className="h-auto w-3/5 max-w-72 drop-shadow-lg transition-transform duration-300 group-hover:scale-105 motion-reduce:transition-none motion-reduce:group-hover:scale-100"
         />
-        <ul aria-label="Colors" className="flex flex-wrap justify-center gap-x-4 gap-y-2 text-sm">
+        <ul
+          aria-label="Colors"
+          className="flex flex-wrap justify-center gap-x-4 gap-y-2 text-sm"
+        >
           {product.colors.map((color) => (
             <li key={color} className="flex items-center gap-2">
               <span
@@ -50,7 +53,9 @@ function ProductCard({ product }: { product: Product }) {
             <h3 className="text-2xl font-bold">{product.name}</h3>
             <p className="text-muted-foreground">{product.type}</p>
           </div>
-          <p className="text-3xl font-extrabold">{formatUsd(product.priceUsd)}</p>
+          <p className="text-3xl font-extrabold">
+            {formatUsd(product.priceUsd)}
+          </p>
         </div>
         <ul className="flex flex-col gap-4">
           {product.features.map((feature) => (
